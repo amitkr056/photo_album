@@ -1,0 +1,60 @@
+/* 
+    Document   : modalbox
+    
+*/
+
+#dialog-overlay{width:100%;height:100%;filter:alpha(opacity=50);-moz-opacity:0.5;-khtml-opacity:0.5;opacity:0.5;background:#000;position:absolute;top:0;left:0;z-index:3000;display:none;}
+#dialog-box{-webkit-box-shadow:0px 0px 10px rgba(0,0,0,0.5);-moz-box-shadow:0px 0px 10px rgba(0,0,0,0.5);-moz-border-radius:5px;-webkit-border-radius:5px;background:#FFFFFF;width:535px;height:175px;position:absolute;z-index:5000;display:none;}
+#dialog-box .dialog-content{
+    text-align:left;
+    padding:10px;
+    margin:13px;
+    color:#000000;
+    font-family:Verdana,Helvetica,Arial,sans-serif;
+    font-size: 0.9em;
+    padding: 10px;
+    line-height: 1.3em;}
+a.button{margin:24px 10px 10px;float: right;text-align:center;display:block;width:50px;padding:5px 10px 6px;text-decoration:none;font-weight:bold;line-height:1;-moz-border-radius:5px;-webkit-border-radius:5px;-moz-box-shadow:0 1px 3px rgba(0,0,0,0.5);-webkit-box-shadow:0 1px 3px rgba(0,0,0,0.5);position:relative;cursor:pointer;}
+#dialog-box .dialog-content p{font-weight:700;margin:0;}
+#dialog-box .dialog-content ul{margin:10px 0 10px 20px;padding:0;height:50px;}
+.add_logo_setting{float:right;font-size:14px;color:#247094}
+a.add_logo_setting:hover{color:#247094}
+.searchCont {
+    background: url("/images/icons/previewLink.png") no-repeat scroll 0 0 transparent;
+    border: 0 solid red;    
+    width: 20px;
+}
+#preview_email_template,#preview_email_template:hover,#cancel_edit, #cancel_edit:hover {color:#247094}
+#edit_template{width:680px}
+div.dailog-header {
+    background: -moz-linear-gradient(center top , #E8E8E7 0%, #FCFCFC 100%) repeat scroll 0 0 transparent;
+    border-bottom: 1px solid #DAD9D8;
+    height: 30px;
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 6px;
+}
+div.dailog-header .close {
+    background: url("/images/btn_modalClose_sprite.png") no-repeat scroll 0 0 transparent;
+    height: 34px;
+    left: 498px;
+    position: absolute;
+    top: 1px;
+    width: 32px;
+}
+
+#dialog-box {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #DAD9D8;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 10px #000000;
+}
+
+.dailog-header h3 {
+    color: #000000;
+    font-size: 1.3em;
+    height: 32px;
+    margin: 0;
+    padding: 5px 65px 5px 10px;
+    text-align: left;
+}

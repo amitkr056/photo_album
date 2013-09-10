@@ -1,0 +1,24 @@
+<%#= link_to "sign out with facebook", signout_path, :id => "sign_out"  %>
+<h1>Logged in with Facebook</h1>
+<%# title 'Omniauth Users' %>
+<%= link_to "Invite Facebook Friends", "#", :id => "invite_facebook_friends" %>
+<input type="text" value="User ID" name="user_id" />
+<table>
+	<tr>
+		<th>User</th>
+		<th>Provider</th>
+		<th>Uid</th>
+		<th>User Name</th>
+		<th>Email</th>
+	</tr>
+	<% for omniauth_user in @omniauth_users %>
+	<tr>
+		<td><%= omniauth_user.user_id %></td>
+		<td><%= omniauth_user.provider %></td>
+		<td><%= omniauth_user.uid %></td>
+		<td><%= omniauth_user.name %></td>
+		<td><%= omniauth_user.email %></td>
+		<td><%= link_to "Destroy", omni_users_path, :confirm => "Are u sure?", :method => :delete %> </td>
+	</tr>
+	<% end %>
+</table>

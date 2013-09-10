@@ -1,0 +1,19 @@
+
+$('#error_message_name').remove();
+$('#error_message_email').remove();
+
+<% if @success %>
+	close_modal_dialog_box();
+	location.reload();
+<% else %>
+	<% if @test_model.errors[:name] %>
+		$("#name").append("<div id='error_message_name' class='error_message'></div>");
+		$("#error_message_name").html('<%= @test_model.errors.messages[:name][0] %>');
+	<% end %>
+
+	<% if @test_model.errors[:email] %>
+		$("#email").append("<div id='error_message_email' class='error_message'></div>");
+		$("#error_message_email").html('<%= @test_model.errors.messages[:email][0] %>');
+	<% end %>
+	
+<% end %>

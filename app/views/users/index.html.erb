@@ -1,0 +1,70 @@
+<% content_for :extra_cssFile do %>
+  <%= stylesheet_link_tag 'gt-modal' ,'modalbox', 'colorbox_admin'%>
+<% end %>
+
+<% content_for :extra_js do %>
+  <%#= javascript_include_tag "modalbox" %>
+<% end %>
+
+<% if user_signed_in? %>
+	<h2>WelCome <%= current_user.email %></h2>
+	<%#= button_to "Create Photo Album", "#", :onclick => "show_dialog_box(); return false;",  :method => "get", :id => "create_photo_album" %>
+
+	<%#= button_to "Create Photo Album", new_photo_album_path, :method => "get", :id => "creation_modal"  %>
+	
+	<%= button_to "Create Photo Album", "#", :method => "get", :id => "creation_modal1"  %>
+
+	<%= button_to "ERROR MODEL", "#", :method => "get", :onclick => "show_dialog_box(); return false;"  %>
+
+	<% unless @album.empty? %>
+		<p><b>Created Photo Albums</b></p>
+		<div id="album_content">
+			<% @album.each do |album|%>
+			<div class="album_header">
+				<p><b>Album Name : </b><%= album.name %></p>
+			</div>
+
+			<div class="album_photos">
+				<% @photos.each do |photo|%>
+					<% if album.id == photo.photo_album_id %>
+						<%= link_to image_tag(photo.image.url(:thumb)), photo.image.url(:original) %>
+						&nbsp &nbsp
+					<% end %>
+				<% end %>
+			</div>
+
+			<div class="album_footer">
+				<%= button_to "Add Photo", add_photo_photo_album_path(album), :method => "get" %>
+			</div>
+			<% end %>
+		<% end %>
+		</div>
+<% else %>
+	<h1>Welcome Guest</h1>
+<% end %>
+
+<% content_for :overlays do %>
+	<%= render(:partial => 'photo_albums/create_album') %>
+<% end %>
+
+
+<% content_for :overlays do %>
+  <div style="display:none">
+    <div id="creation_modal">
+    </div>
+  </div>
+<% end %>
+
+<%= yield :overlays %>
+
+<script type="text/javascript">
+	$("#creation_modal1").click(function(){
+		new_url = "/photo_albums/new.js"
+		$.ajax({
+      		type: "GET",
+      		url: new_url,
+      		dataType: "script"
+    	});
+
+	});
+</script>

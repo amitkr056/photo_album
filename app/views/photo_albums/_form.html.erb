@@ -1,0 +1,26 @@
+<% if @album.errors.any? %>
+<div id="errorExplanation", class="errorExplanation">
+  <h2><%= pluralize(@album.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+  <ul>
+    <% @album.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+  </div>
+<% end %>
+
+<% if form_builder.object.new_record? %> 
+<div><h4 style="margin-bottom: 0px;"><%= form_builder.label :album_name %></h4>
+  <%= form_builder.text_field :name, :autofocus => true %></div>
+<% end %>
+
+<h4 style="margin-bottom: 0px;">Upload Image</h4>
+  <%= form_builder.fields_for :photos do |photo_field| %>
+    <% if photo_field.object.new_record?%>
+      <%= photo_field.file_field :image %>
+    <% end %>
+  <% end %>
+  
+  <div><%= form_builder.submit "Create" %></div>
+  

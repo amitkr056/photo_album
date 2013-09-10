@@ -1,0 +1,3 @@
+
+$.colorbox.close();
+location.reload();

@@ -1,0 +1,6 @@
+<h3><%= "Add Photos To Album" %></h3>
+<%= form_for @album, :url => {:action => "update_photo_album" }, :html => { :multipart => true } do |form_builder| %>
+
+<%= render :partial => "form", :locals => { :form_builder => form_builder } %>
+
+<% end %>

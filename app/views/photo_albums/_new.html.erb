@@ -1,0 +1,5 @@
+<%= form_for @album, :url => {:controller =>"photo_albums", :action => "create"}, :html => { :multipart => true }, :remote => true do |form_builder| %>
+
+<%= render :partial => "form", :locals => { :form_builder => form_builder } %>
+
+<% end %>

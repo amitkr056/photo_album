@@ -1,0 +1,31 @@
+<div id="dialog-overlay"></div>
+  <div id="dialog-box" style="height:340px;">
+    <div class='dailog-header'><b><%= "Create Error Modal" %></b></div>
+    <div class="dialog-content">
+      <div id="dialog-message"> 
+        <%= form_for :modal_box, :url => {:controller =>"photo_albums", :action => "modal_pop_up"}, :method => :post, :remote => true do |form_builder| %>
+
+        <div id="error_messages" style="color:red;"></div>
+
+        <div id= "name">
+          <h4 style="margin-bottom: 0px;"><%= form_builder.label :name %></h4>
+          <%= form_builder.text_field :name, :autofocus => true %>
+        </div>
+
+        <div id= "email">
+          <h4 style="margin-bottom: 0px;"><%= form_builder.label :email %></h4>
+          <%= form_builder.text_field :email, :autofocus => true %>
+        </div>
+
+        <div>
+          <h4 style="margin-bottom: 0px;"><%= form_builder.label :mobile %></h4>
+          <%= form_builder.text_field :mobile, :autofocus => true %>
+        </div>
+  
+        <div><%= form_builder.submit "Create" %>
+        <%= fancy_button 'Cancel', '#', :onclick => 'close_modal_dialog_box();return false' %></div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>

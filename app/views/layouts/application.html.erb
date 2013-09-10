@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Album</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application", "jquery.colorbox", "jquery.colorbox-min", "modalbox"%>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="site_container" class="wrapper">
+  <div id="header">
+    <div id="nav">
+      <% if user_signed_in? %>
+        Signed in as <b><%= current_user.email %>.</b> Not you?
+        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %><br />
+        <% if omniauth_user %>
+          Signed in from facebook as <b><%= omniauth_user.email %>.</b><%= link_to "Sign out with facebook", signout_path, :id => "sign_out"  %>
+        <% else %>
+          <%= link_to "Sign in with facebook", "/auth/facebook", :id => "sign_in"  %>
+        <% end %>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+      <% end %>
+    </div>
+  </div>
+  <div id="site_content" >
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
+      <%= yield %>
+  </div>
+
+  <div class="footer"> Created & Mainted by A.K developer Copyright &copy <%= Time.now.strftime( "%Y" ) %>. All rights reserved.</div>
+</div>
+</body>
+</html>

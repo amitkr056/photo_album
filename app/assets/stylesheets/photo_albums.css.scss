@@ -1,0 +1,52 @@
+// Place all the styles related to the photo_albums controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#errorExplanation {
+    background: url("bg_error.png") repeat-x scroll 0 0 #FFECEC;
+    border-color: #FF9B9B;
+}
+
+.errorExplanation, .feedback, .feedback-inline {
+    border: 1px solid #CCCCCC;
+    border-radius: 5px 5px 5px 5px;
+    margin-bottom: 20px;
+    padding: 10px 20px 10px 60px;
+    position: relative;
+}
+
+#errorExplanation h2 {
+    background: url("icon_error32.png") no-repeat scroll 0 0 transparent;
+    color: #8C2222;
+    font-size: 1.1em;
+}
+
+.errorExplanation h2, .feedback h2 {
+    font-weight: normal;
+    line-height: 20px;
+    margin-bottom: 0;
+    margin-left: -50px;
+    padding-left: 50px;
+}
+
+.fncyBtn {
+    background: url("/images/backgrounds/bg_btn.png") repeat-x scroll 0 bottom #E6E5E4;
+    border: 1px solid #BBBBB9;
+    border-radius: 4px 4px 4px 4px;
+    color: #376F89;
+    font-family: "Trebuchet MS","Lucida Grande",verdana,sans-serif;
+    font-size: 1em;
+    font-weight: normal;
+    padding: 0.2em 0.6em;
+    position: relative;
+}
+a {
+    color: #AE5600;
+    cursor: pointer;
+    text-decoration: none;
+}
+.fncyBtn span {
+    border-radius: 4px 4px 4px 4px;
+}
+.error_message{
+    color: red;
+}
