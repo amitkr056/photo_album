@@ -3,13 +3,9 @@ class PhotoAlbumsController < ApplicationController
 	def new
 		@album = PhotoAlbum.new
 		5.times {@album.photos.build}
-		p ">>>>>>>>>>>>>>>>>>>>>>>>>>NEW"
 	end
 
 	def create
-		p "++++++++++++++++++++++++++++++++++++++"
-		#p params
-		p "++++++++++++++++++++++++++++++++++++++"
 		@user = current_user
 		@album = @user.photo_albums.new(params[:photo_album])
 		if @album.save
@@ -18,12 +14,6 @@ class PhotoAlbumsController < ApplicationController
 			rescue Exception => e
 				flash[:error] = e.message
 			end
-			p "????????????????????????????????"
-			#@album.photos.each do |photo|
-       		#p photo.image.url(:original)
-       		#attachments[photo.image_file_name] = File.read("#{Rails.root}/public/#{photo.image.url(:original)}")
-       		#p "#{Rails.root}/public#{photo.image.url(:original)}"
-     		#end
 			flash[:notice] = "Album created Successfully."
 			respond_to do |format|
           		format.html {redirect_to root_path}
@@ -51,9 +41,7 @@ class PhotoAlbumsController < ApplicationController
 	end
 
 	def modal_pop_up
-		p "++++++++IN MODAL POP UP+++++++++"
 		@test_model= TestModel.new(params[:modal_box])
-		p @test_model
 		if @test_model.save
 			@success = true
 		else
@@ -64,13 +52,4 @@ class PhotoAlbumsController < ApplicationController
 		end
 	end
 
-	def check_for_errors(name, email, mobile)
-		p "check_for_errors++++++++++++++++++++"
-		p name.blank?
-		if name.blank?
-			return false
-		else
-			return true
-		end
-	end
 end

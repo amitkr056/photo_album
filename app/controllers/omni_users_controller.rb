@@ -5,7 +5,6 @@ class OmniUsersController < ApplicationController
 	end
 
 	def create
-		p "<<<<<<<<<<<<create>>>>>>>>>>>>>>>>>"
 		omniauth_user = current_user.omniauth_users.from_omniauth(env["omniauth.auth"])
 		session[:omniauth_user_id] = omniauth_user.id
 		flash[:notice] = "User Signed-in through facebook successfully."

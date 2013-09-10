@@ -2,10 +2,6 @@
   <%= stylesheet_link_tag 'gt-modal' ,'modalbox', 'colorbox_admin'%>
 <% end %>
 
-<% content_for :extra_js do %>
-  <%#= javascript_include_tag "modalbox" %>
-<% end %>
-
 <% if user_signed_in? %>
 	<h2>WelCome <%= current_user.email %></h2>
 	<%#= button_to "Create Photo Album", "#", :onclick => "show_dialog_box(); return false;",  :method => "get", :id => "create_photo_album" %>
